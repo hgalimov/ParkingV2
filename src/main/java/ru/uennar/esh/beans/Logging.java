@@ -12,7 +12,7 @@ public class Logging {
 
     }
 
-    @Before("addCar()")
+   /* @Before("addCar()")
     public void beforeAdviceAddCar() {
         System.out.println("Не парковался.");
     }
@@ -25,7 +25,7 @@ public class Logging {
     @AfterReturning(pointcut = "addCar()", returning = "someValue")
     public void afterReturningAdviceAddCar(Object someValue) {
         System.out.println("Value: " + someValue.toString());
-    }
+    }*/
 
     @Pointcut("execution(* ru.uennar.esh.beans.Parking.dltCar(..))")
     public void dltCar() {
@@ -34,12 +34,12 @@ public class Logging {
 
     @Before("dltCar()")
     public void beforeAdviceDltCar() {
-        System.out.println("Не уехал.");
+        System.out.println("Авто собирается уходить.");
     }
 
     @After("dltCar()")
     public void afterAdviceDltCar() {
-        System.out.println("Уехал.");
+        System.out.println("Может уехал.");
     }
 
     @AfterReturning(pointcut = "dltCar()", returning = "someValue")
