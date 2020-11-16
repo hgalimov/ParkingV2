@@ -18,7 +18,7 @@ public class Parking {
     private List<Car> inParkingList;
     private List<Car> generatedList;
 
-    private Parking() {
+    public Parking() {
         inParkingList = new ArrayList<>();
         generatedList = new ArrayList<>();
     }

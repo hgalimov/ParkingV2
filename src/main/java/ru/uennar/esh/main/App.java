@@ -1,6 +1,7 @@
 package ru.uennar.esh.main;
 
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import ru.uennar.esh.beans.Parking;
 import ru.uennar.esh.model.Car;
@@ -22,8 +23,9 @@ public class App {
 
     public static void main(String[] args) {
         inputData();
-        context =
-                new ClassPathXmlApplicationContext(new String[]{"spring.xml"});
+       /* context =
+                new ClassPathXmlApplicationContext(new String[]{"spring.xml"});*/
+        context = new AnnotationConfigApplicationContext(AppConfig.class);
         Parking parking = context.getBean("parking", Parking.class);
         parking.setSize(parkingSize);
         ExecutorService service = Executors.newFixedThreadPool(4);
